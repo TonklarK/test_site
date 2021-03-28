@@ -1,0 +1,20 @@
+{% extends 'blog/base.html'%}
+{% load static %}
+{% block title %} 
+<title>all_blog</title>
+{% endblock %} 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML Tutorial</title>
+    </head>
+<body>
+<h1>Hello Forms!</h1>
+<form class="post-form"  method="POST" action="{% url 'contact' %}">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

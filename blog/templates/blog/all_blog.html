@@ -1,0 +1,73 @@
+{% extends 'blog/base.html'%}
+{% load static %}
+{% block title %} 
+<title>all_blog</title>
+{% endblock %} 
+{% block content %}
+<div class="intro intro-single route bg-image" style="background-image: url({{single_post.featured_pic.url}})">
+    <div class="overlay-mf"></div>
+    <div class="intro-content display-table">
+        <div class="table-cell">
+          <div class="container">
+            <h2 class="intro-title mb-4">ALL YOU CAN LEARN</h2>
+            <h4 class="intro-title mb-4">easy to hard</h4>
+
+              <!-- <li class="breadcrumb-item">
+                <a href="#">Library</a>
+              </li>
+              <li class="breadcrumb-item active">Data</li> -->
+            </ol>
+          </div>
+        </div>
+      </div>
+</div>
+<section id="blog" class="blog-mf sect-pt4 route">
+    <div class="container" , style="margin-bottom: 50px ;">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="title-box text-center">
+            <br>
+            <h3 class="title-a">
+              Blog
+            </h3>
+            <p class="subtitle-a">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </p>
+            <div class="line-mf"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+      {% for i in all_posts_all %}
+        <div class="col-md-4">
+          <div class="card card-"blog">
+            <div class="card-img">
+              <a href="/blog/{{i.id}}"><img src="{{i.featured_pic.url}}" alt="{{i.title}}" class="img-fluid"></a>
+            </div>
+            <div class="card-body">
+
+              <h3 class="card-title"><a href="/blog/{{i.id}}">{{i.title}}</a></h3>
+              <p class="card-description">
+                {{i.short_description}}
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="post-author">
+                <a href="#">
+                  <span class="author">Author : {{i.author}}</span>
+                </a>
+              </div>
+              <div class="post-date">
+                <span class="ion-ios-calendar-outline"></span> {{i.date_created}}
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    <!-- <div class="col-md-12 text-center" style="margin-top: 50px;" ;>
+      <a class="btn btn-primary" type="submit" href="/" ;>See More</a> 
+    </div>  -->
+    </div>
+  </section><!-- End "Blog Section -->
+{% endblock %}
